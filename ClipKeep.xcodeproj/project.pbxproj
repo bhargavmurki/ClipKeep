@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36C0A8EC2C65B45B0000B8BF /* ClipKeepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8EB2C65B45B0000B8BF /* ClipKeepApp.swift */; };
+		36C0A8EE2C65B45B0000B8BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8ED2C65B45B0000B8BF /* ContentView.swift */; };
+		36C0A8F02C65B45B0000B8BF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8EF2C65B45B0000B8BF /* Item.swift */; };
+		36C0A8F22C65B45D0000B8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C0A8F12C65B45D0000B8BF /* Assets.xcassets */; };
+		36C0A8F62C65B45D0000B8BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C0A8F52C65B45D0000B8BF /* Preview Assets.xcassets */; };
+		36C0A9002C65B45D0000B8BF /* ClipKeepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8FF2C65B45D0000B8BF /* ClipKeepTests.swift */; };
+		36C0A90A2C65B45D0000B8BF /* ClipKeepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A9092C65B45D0000B8BF /* ClipKeepUITests.swift */; };
+		36C0A90C2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A90B2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36C0A8FC2C65B45D0000B8BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36C0A8E02C65B45B0000B8BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36C0A8E72C65B45B0000B8BF;
+			remoteInfo = ClipKeep;
+		};
+		36C0A9062C65B45D0000B8BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36C0A8E02C65B45B0000B8BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36C0A8E72C65B45B0000B8BF;
+			remoteInfo = ClipKeep;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36C0A8E82C65B45B0000B8BF /* ClipKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C0A8EB2C65B45B0000B8BF /* ClipKeepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepApp.swift; sourceTree = "<group>"; };
+		36C0A8ED2C65B45B0000B8BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		36C0A8EF2C65B45B0000B8BF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		36C0A8F12C65B45D0000B8BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36C0A8F32C65B45D0000B8BF /* ClipKeep.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipKeep.entitlements; sourceTree = "<group>"; };
+		36C0A8F52C65B45D0000B8BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		36C0A8FB2C65B45D0000B8BF /* ClipKeepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipKeepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C0A8FF2C65B45D0000B8BF /* ClipKeepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepTests.swift; sourceTree = "<group>"; };
+		36C0A9052C65B45D0000B8BF /* ClipKeepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipKeepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C0A9092C65B45D0000B8BF /* ClipKeepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepUITests.swift; sourceTree = "<group>"; };
+		36C0A90B2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36C0A8E52C65B45B0000B8BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A8F82C65B45D0000B8BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A9022C65B45D0000B8BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36C0A8DF2C65B45B0000B8BF = {
+			isa = PBXGroup;
+			children = (
+				36C0A8EA2C65B45B0000B8BF /* ClipKeep */,
+				36C0A8FE2C65B45D0000B8BF /* ClipKeepTests */,
+				36C0A9082C65B45D0000B8BF /* ClipKeepUITests */,
+				36C0A8E92C65B45B0000B8BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36C0A8E92C65B45B0000B8BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36C0A8E82C65B45B0000B8BF /* ClipKeep.app */,
+				36C0A8FB2C65B45D0000B8BF /* ClipKeepTests.xctest */,
+				36C0A9052C65B45D0000B8BF /* ClipKeepUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36C0A8EA2C65B45B0000B8BF /* ClipKeep */ = {
+			isa = PBXGroup;
+			children = (
+				36C0A8EB2C65B45B0000B8BF /* ClipKeepApp.swift */,
+				36C0A8ED2C65B45B0000B8BF /* ContentView.swift */,
+				36C0A8EF2C65B45B0000B8BF /* Item.swift */,
+				36C0A8F12C65B45D0000B8BF /* Assets.xcassets */,
+				36C0A8F32C65B45D0000B8BF /* ClipKeep.entitlements */,
+				36C0A8F42C65B45D0000B8BF /* Preview Content */,
+			);
+			path = ClipKeep;
+			sourceTree = "<group>";
+		};
+		36C0A8F42C65B45D0000B8BF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				36C0A8F52C65B45D0000B8BF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		36C0A8FE2C65B45D0000B8BF /* ClipKeepTests */ = {
+			isa = PBXGroup;
+			children = (
+				36C0A8FF2C65B45D0000B8BF /* ClipKeepTests.swift */,
+			);
+			path = ClipKeepTests;
+			sourceTree = "<group>";
+		};
+		36C0A9082C65B45D0000B8BF /* ClipKeepUITests */ = {
+			isa = PBXGroup;
+			children = (
+				36C0A9092C65B45D0000B8BF /* ClipKeepUITests.swift */,
+				36C0A90B2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift */,
+			);
+			path = ClipKeepUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36C0A8E72C65B45B0000B8BF /* ClipKeep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C0A90F2C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeep" */;
+			buildPhases = (
+				36C0A8E42C65B45B0000B8BF /* Sources */,
+				36C0A8E52C65B45B0000B8BF /* Frameworks */,
+				36C0A8E62C65B45B0000B8BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClipKeep;
+			productName = ClipKeep;
+			productReference = 36C0A8E82C65B45B0000B8BF /* ClipKeep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36C0A8FA2C65B45D0000B8BF /* ClipKeepTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C0A9122C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeepTests" */;
+			buildPhases = (
+				36C0A8F72C65B45D0000B8BF /* Sources */,
+				36C0A8F82C65B45D0000B8BF /* Frameworks */,
+				36C0A8F92C65B45D0000B8BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36C0A8FD2C65B45D0000B8BF /* PBXTargetDependency */,
+			);
+			name = ClipKeepTests;
+			productName = ClipKeepTests;
+			productReference = 36C0A8FB2C65B45D0000B8BF /* ClipKeepTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36C0A9042C65B45D0000B8BF /* ClipKeepUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36C0A9152C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeepUITests" */;
+			buildPhases = (
+				36C0A9012C65B45D0000B8BF /* Sources */,
+				36C0A9022C65B45D0000B8BF /* Frameworks */,
+				36C0A9032C65B45D0000B8BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36C0A9072C65B45D0000B8BF /* PBXTargetDependency */,
+			);
+			name = ClipKeepUITests;
+			productName = ClipKeepUITests;
+			productReference = 36C0A9052C65B45D0000B8BF /* ClipKeepUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36C0A8E02C65B45B0000B8BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					36C0A8E72C65B45B0000B8BF = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					36C0A8FA2C65B45D0000B8BF = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 36C0A8E72C65B45B0000B8BF;
+					};
+					36C0A9042C65B45D0000B8BF = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 36C0A8E72C65B45B0000B8BF;
+					};
+				};
+			};
+			buildConfigurationList = 36C0A8E32C65B45B0000B8BF /* Build configuration list for PBXProject "ClipKeep" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36C0A8DF2C65B45B0000B8BF;
+			productRefGroup = 36C0A8E92C65B45B0000B8BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36C0A8E72C65B45B0000B8BF /* ClipKeep */,
+				36C0A8FA2C65B45D0000B8BF /* ClipKeepTests */,
+				36C0A9042C65B45D0000B8BF /* ClipKeepUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36C0A8E62C65B45B0000B8BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C0A8F62C65B45D0000B8BF /* Preview Assets.xcassets in Resources */,
+				36C0A8F22C65B45D0000B8BF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A8F92C65B45D0000B8BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A9032C65B45D0000B8BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36C0A8E42C65B45B0000B8BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C0A8EE2C65B45B0000B8BF /* ContentView.swift in Sources */,
+				36C0A8F02C65B45B0000B8BF /* Item.swift in Sources */,
+				36C0A8EC2C65B45B0000B8BF /* ClipKeepApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A8F72C65B45D0000B8BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C0A9002C65B45D0000B8BF /* ClipKeepTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36C0A9012C65B45D0000B8BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C0A90C2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift in Sources */,
+				36C0A90A2C65B45D0000B8BF /* ClipKeepUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36C0A8FD2C65B45D0000B8BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36C0A8E72C65B45B0000B8BF /* ClipKeep */;
+			targetProxy = 36C0A8FC2C65B45D0000B8BF /* PBXContainerItemProxy */;
+		};
+		36C0A9072C65B45D0000B8BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36C0A8E72C65B45B0000B8BF /* ClipKeep */;
+			targetProxy = 36C0A9062C65B45D0000B8BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		36C0A90D2C65B45D0000B8BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36C0A90E2C65B45D0000B8BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		36C0A9102C65B45D0000B8BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClipKeep/ClipKeep.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClipKeep/Preview Content\"";
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36C0A9112C65B45D0000B8BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ClipKeep/ClipKeep.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ClipKeep/Preview Content\"";
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36C0A9132C65B45D0000B8BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipKeep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipKeep";
+			};
+			name = Debug;
+		};
+		36C0A9142C65B45D0000B8BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipKeep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipKeep";
+			};
+			name = Release;
+		};
+		36C0A9162C65B45D0000B8BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClipKeep;
+			};
+			name = Debug;
+		};
+		36C0A9172C65B45D0000B8BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9B75L8CM2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ClipKeep;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36C0A8E32C65B45B0000B8BF /* Build configuration list for PBXProject "ClipKeep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C0A90D2C65B45D0000B8BF /* Debug */,
+				36C0A90E2C65B45D0000B8BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C0A90F2C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C0A9102C65B45D0000B8BF /* Debug */,
+				36C0A9112C65B45D0000B8BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C0A9122C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeepTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C0A9132C65B45D0000B8BF /* Debug */,
+				36C0A9142C65B45D0000B8BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36C0A9152C65B45D0000B8BF /* Build configuration list for PBXNativeTarget "ClipKeepUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36C0A9162C65B45D0000B8BF /* Debug */,
+				36C0A9172C65B45D0000B8BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36C0A8E02C65B45B0000B8BF /* Project object */;
+}
