@@ -10,6 +10,7 @@
 		3668DB102C65B63600430975 /* ClipboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3668DB0F2C65B63600430975 /* ClipboardMonitor.swift */; };
 		3668DB122C68886B00430975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3668DB112C68886B00430975 /* AppDelegate.swift */; };
 		3668DB142C6890C700430975 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3668DB132C6890C700430975 /* README.md */; };
+		3668DB162C6894B800430975 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3668DB152C6894B800430975 /* .gitignore */; };
 		36C0A8EC2C65B45B0000B8BF /* ClipKeepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8EB2C65B45B0000B8BF /* ClipKeepApp.swift */; };
 		36C0A8EE2C65B45B0000B8BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8ED2C65B45B0000B8BF /* ContentView.swift */; };
 		36C0A8F02C65B45B0000B8BF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8EF2C65B45B0000B8BF /* Item.swift */; };
@@ -41,6 +42,7 @@
 		3668DB0F2C65B63600430975 /* ClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardMonitor.swift; sourceTree = "<group>"; };
 		3668DB112C68886B00430975 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3668DB132C6890C700430975 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3668DB152C6894B800430975 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		36C0A8E82C65B45B0000B8BF /* ClipKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C0A8EB2C65B45B0000B8BF /* ClipKeepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepApp.swift; sourceTree = "<group>"; };
 		36C0A8ED2C65B45B0000B8BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		36C0A8DF2C65B45B0000B8BF = {
 			isa = PBXGroup;
 			children = (
+				3668DB152C6894B800430975 /* .gitignore */,
 				3668DB132C6890C700430975 /* README.md */,
 				36C0A8EA2C65B45B0000B8BF /* ClipKeep */,
 				36C0A8FE2C65B45D0000B8BF /* ClipKeepTests */,
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3668DB162C6894B800430975 /* .gitignore in Resources */,
 				3668DB142C6890C700430975 /* README.md in Resources */,
 				36C0A8F62C65B45D0000B8BF /* Preview Assets.xcassets in Resources */,
 				36C0A8F22C65B45D0000B8BF /* Assets.xcassets in Resources */,

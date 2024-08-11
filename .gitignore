@@ -1,0 +1,3 @@
+echo "ClipKeepUITests" >> .gitignore
+echo "ClipKeepTests" >> .gitignore
+
