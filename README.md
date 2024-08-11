@@ -34,3 +34,7 @@ _A simple and efficient clipboard manager for macOS, designed to help you keep t
 - Search: Use the search bar to filter through your clipboard history quickly.
 - Clear History: Click the trash icon in the menu bar dropdown to clear all clipboard history.
 
+# License
+MIT License
+
+Copyright (c) 2024 Bhargav Murki
