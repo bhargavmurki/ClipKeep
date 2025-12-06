@@ -1,46 +1,49 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var clipboardHistoryState: [String] = []
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: [SortDescriptor(\Item.createdAt, order: .reverse)]) private var items: [Item]
+
     @State private var searchText = ""
     @State private var isShowingConfirmation = false
-    @State private var selectedClipboardItem: String? = nil // State variable to track the selected item
+    @State private var selectedItem: Item?
 
     var body: some View {
         NavigationView {
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
                     searchBar
-                    
+
                     List {
-                        ForEach(filteredClipboardHistory.indices, id: \.self) { index in
-                            Button(action: {
-                                selectedClipboardItem = filteredClipboardHistory[index]
-                            }) {
-                                ClipboardItemView(text: filteredClipboardHistory[index])
+                        ForEach(filteredItems) { item in
+                            Button {
+                                selectedItem = item
+                            } label: {
+                                ClipboardItemView(text: item.content)
                             }
-                            .buttonStyle(PlainButtonStyle()) // So the button doesn’t look like a button
-                            .background(selectedClipboardItem == filteredClipboardHistory[index] ? Color.gray.opacity(0.2) : Color.clear) // Highlight selected item
+                            .buttonStyle(PlainButtonStyle())
+                            .background(selectedItem?.persistentModelID == item.persistentModelID ? Color.gray.opacity(0.2) : Color.clear)
                         }
                         .onDelete(perform: deleteItems)
                     }
                     .listStyle(PlainListStyle())
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Divider() // Adds a divider between the list and the preview
-                
-                if let selectedItem = selectedClipboardItem {
+
+                Divider()
+
+                if let selectedItem = selectedItem {
                     VStack(alignment: .leading) {
                         Text("Preview")
                             .font(.headline)
                             .padding([.top, .horizontal])
-                        
+
                         ScrollView {
-                            TextEditor(text: .constant(selectedItem))
+                            TextEditor(text: .constant(selectedItem.content))
                                 .padding()
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .background(Color(platformBackgroundColor)) // Match the background with the rest of the app
+                                .background(Color(platformBackgroundColor))
                                 .cornerRadius(8)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -71,15 +74,8 @@ struct ContentView: View {
                 secondaryButton: .cancel()
             )
         }
-        .onAppear {
-            loadClipboardHistory()
-            updateHistory()
-            NotificationCenter.default.addObserver(forName: NSNotification.Name("ClipboardHistoryUpdated"), object: nil, queue: .main) { _ in
-                updateHistory()
-            }
-        }
     }
-    
+
     private var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -88,7 +84,7 @@ struct ContentView: View {
         }
         .padding()
         .background(
-            Color(platformBackgroundColor) // Using a cross-platform color
+            Color(platformBackgroundColor)
         )
     }
 
@@ -97,7 +93,7 @@ struct ContentView: View {
     #elseif os(iOS)
     private let platformBackgroundColor = UIColor.secondarySystemBackground
     #endif
-    
+
     private var clearButton: some View {
         Button(action: {
             isShowingConfirmation = true
@@ -106,50 +102,39 @@ struct ContentView: View {
         }
     }
 
-    private var filteredClipboardHistory: [String] {
+    private var filteredItems: [Item] {
         if searchText.isEmpty {
-            return clipboardHistoryState
+            return items
         } else {
-            return clipboardHistoryState.filter { $0.localizedCaseInsensitiveContains(searchText) }
+            return items.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
         }
     }
 
     private func deleteItems(at offsets: IndexSet) {
-        clipboardHistory.remove(atOffsets: offsets)
-        saveClipboardHistory()
-        updateHistory()
-    }
+        let targets = offsets.map { filteredItems[$0] }
+        targets.forEach { modelContext.delete($0) }
+        try? modelContext.save()
 
-    private func updateHistory() {
-        DispatchQueue.main.async {
-            self.clipboardHistoryState = clipboardHistory
+        if let selectedItem, targets.contains(where: { $0.persistentModelID == selectedItem.persistentModelID }) {
+            self.selectedItem = nil
         }
     }
 
-    private func loadClipboardHistory() {
-        clipboardHistory = UserDefaults.standard.stringArray(forKey: "clipboardHistory") ?? []
-        clipboardHistoryState = clipboardHistory
-    }
-
     private func clearClipboardHistory() {
-        clipboardHistory.removeAll()
-        saveClipboardHistory()
-        updateHistory()
-    }
-
-    private func saveClipboardHistory() {
-        UserDefaults.standard.set(clipboardHistory, forKey: "clipboardHistory")
+        items.forEach { modelContext.delete($0) }
+        try? modelContext.save()
+        selectedItem = nil
     }
 }
 
 struct ClipboardItemView: View {
     let text: String
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(text)
                 .lineLimit(2)
-            
+
             HStack {
                 Text(String(text.prefix(50)))
                     .font(.caption)

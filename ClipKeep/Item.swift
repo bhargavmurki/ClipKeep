@@ -10,9 +10,15 @@ import SwiftData
 
 @Model
 final class Item {
-    var timestamp: Date
-    
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    var content: String
+    var createdAt: Date
+    var source: String = "Clipboard"
+    var copyCount: Int = 1
+
+    init(content: String, createdAt: Date = .init(), source: String = "Clipboard", copyCount: Int = 1) {
+        self.content = content
+        self.createdAt = createdAt
+        self.source = source
+        self.copyCount = copyCount
     }
 }

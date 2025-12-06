@@ -1,38 +1,41 @@
 # ClipKeep
 
-_A simple and efficient clipboard manager for macOS, designed to help you keep track of everything you copy._
+_A fast, menu-bar–only clipboard manager for macOS with a sleek drop-down experience._
 
 ## Features
 
-- **Menu Bar Integration**: Access your clipboard history directly from the macOS menu bar.
-- **Persistent History**: Your clipboard history is saved and accessible even after restarting the app.
-- **Automatic Updates**: The clipboard history updates automatically as you copy new items, without duplicates.
-- **Search**: Quickly find items in your clipboard history with a built-in search feature.
-- **Copy to Clipboard**: Easily re-copy any item from your history back to the clipboard.
-- **Clear History**: Clear all clipboard history with a single click.
+- **Menu Bar–Only UI**: Click the doc icon in the menu bar to open the drop-down popover; no separate window.
+- **Instant History**: Captures clipboard changes automatically and keeps them deduplicated.
+- **Search & Hover Details**: Filter quickly; hover any row to reveal source, timestamp, and copy count.
+- **Light/Dark Friendly**: SwiftUI styling with subtle hover/press feedback for a modern feel.
+- **One-Tap Actions**: Click to re-copy, clear all, or quit directly from the popover.
 
 ## Installation
 
-**Clone the repository:**
+```bash
+git clone https://github.com/yourusername/ClipKeep.git
+cd ClipKeep
+open ClipKeep.xcodeproj   # or: xed .
+```
 
-   ```bash
-   git clone https://github.com/yourusername/ClipKeep.github
-   ```
-   
-**Open the project in Xcode:**
-
-   ```bash
-   cd ClipKeep
-   open ClipKeep.xcodeproj
-   ```
-**Build and Run**
-- Select your target device (e.g., My Mac) and press Cmd + R to build and run the app.
+Build & run in Xcode (Cmd+R) targeting “My Mac”. The menu bar icon (`doc.on.doc.fill`) hosts the entire experience.
 
 
 ## Usage
-- Menu Bar: Click the clipboard icon in the menu bar to view your clipboard history. Select any item to copy it back to the clipboard.
-- Search: Use the search bar to filter through your clipboard history quickly.
-- Clear History: Click the trash icon in the menu bar dropdown to clear all clipboard history.
+- Click the menu bar icon to open the popover; items are shown newest-first.
+- Hover a row to see source, date/time, and copy frequency; click to copy.
+- Use the search bar for quick filtering; “Clear All” wipes history; “Quit” exits the menu item.
+
+## Build & Test (CLI)
+
+- Build: `xcodebuild -scheme ClipKeep -destination 'platform=macOS' build`
+- Test: `xcodebuild test -scheme ClipKeep -destination 'platform=macOS'` (UI tests currently skipped by design; add menu-bar scenarios before enabling).
+
+## Security & Data
+
+- Sandbox is enabled with user-selected read-only access; no network or external permissions.
+- Clipboard history is stored locally under Application Support (`ClipKeep.store`). No data leaves the device.
+- No secrets, API keys, or provisioning profiles are committed; keep it that way when contributing.
 
 # License
 MIT License

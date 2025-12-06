@@ -3,11 +3,8 @@ import Cocoa
 #elseif os(iOS)
 import UIKit
 #endif
+import SwiftData
 
-// Global array to store clipboard history
-var clipboardHistory: [String] = []
-
-// Function to get the current content of the clipboard
 func getClipboardContent() -> String? {
     #if os(macOS)
     let pasteboard = NSPasteboard.general
@@ -18,30 +15,13 @@ func getClipboardContent() -> String? {
     #endif
 }
 
-// Function to store the clipboard content in the history
-func storeClipboardContent() {
-    if let content = getClipboardContent(), !content.isEmpty {
-        // Check if the content already exists in the clipboard history
-        if let existingIndex = clipboardHistory.firstIndex(of: content) {
-            // If it exists, remove it from its current position
-            clipboardHistory.remove(at: existingIndex)
-        }
-        // Insert the content at the top of the list
-        clipboardHistory.insert(content, at: 0)
-        saveClipboardHistory()
-        NotificationCenter.default.post(name: NSNotification.Name("ClipboardHistoryUpdated"), object: nil)
-    }
-}
-
-
-func saveClipboardHistory() {
-    UserDefaults.standard.set(clipboardHistory, forKey: "clipboardHistory")
-}
-
 class ClipboardMonitor {
     private var lastChangeCount: Int = 0
+    private let modelContext: ModelContext
 
-    init() {
+    init(container: ModelContainer) {
+        self.modelContext = ModelContext(container)
+
         #if os(iOS)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         #elseif os(macOS)
@@ -60,9 +40,30 @@ class ClipboardMonitor {
         let pasteboard = UIPasteboard.general
         #endif
 
-        if pasteboard.changeCount != lastChangeCount {
-            lastChangeCount = pasteboard.changeCount
-            storeClipboardContent()
+        guard pasteboard.changeCount != lastChangeCount else { return }
+        lastChangeCount = pasteboard.changeCount
+
+        guard let content = getClipboardContent(), !content.isEmpty else { return }
+        persist(content: content)
+    }
+
+    private func persist(content: String) {
+        do {
+            let descriptor = FetchDescriptor<Item>(
+                predicate: #Predicate { $0.content == content }
+            )
+            if let existing = try modelContext.fetch(descriptor).first {
+                existing.copyCount += 1
+                existing.createdAt = Date()
+            } else {
+                let item = Item(content: content, createdAt: Date(), source: "Clipboard", copyCount: 1)
+                modelContext.insert(item)
+            }
+            try modelContext.save()
+
+            NotificationCenter.default.post(name: NSNotification.Name("ClipboardHistoryUpdated"), object: nil)
+        } catch {
+            print("Failed to persist clipboard content: \(error)")
         }
     }
 }
