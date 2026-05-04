@@ -21,6 +21,8 @@
 		36C0A9002C65B45D0000B8BF /* ClipKeepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A8FF2C65B45D0000B8BF /* ClipKeepTests.swift */; };
 		36C0A90A2C65B45D0000B8BF /* ClipKeepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A9092C65B45D0000B8BF /* ClipKeepUITests.swift */; };
 		36C0A90C2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C0A90B2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift */; };
+		36E0A9B22D0200010000A1B2 /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0A9B02D0200010000A1B2 /* HotKeyManager.swift */; };
+		36E0A9B32D0200010000A1B2 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0A9B12D0200010000A1B2 /* MenuBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		36C0A9052C65B45D0000B8BF /* ClipKeepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipKeepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C0A9092C65B45D0000B8BF /* ClipKeepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepUITests.swift; sourceTree = "<group>"; };
 		36C0A90B2C65B45D0000B8BF /* ClipKeepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipKeepUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		36E0A9B02D0200010000A1B2 /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
+		36E0A9B12D0200010000A1B2 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				3668DB0F2C65B63600430975 /* ClipboardMonitor.swift */,
 				36C0A8F42C65B45D0000B8BF /* Preview Content */,
 				3668DB112C68886B00430975 /* AppDelegate.swift */,
+				36E0A9B02D0200010000A1B2 /* HotKeyManager.swift */,
+				36E0A9B12D0200010000A1B2 /* MenuBarController.swift */,
 				36D0A9A02D0000010000A1B2 /* MenuBarView.swift */,
 			);
 			path = ClipKeep;
@@ -286,8 +292,10 @@
 				36C0A8EE2C65B45B0000B8BF /* ContentView.swift in Sources */,
 				3668DB102C65B63600430975 /* ClipboardMonitor.swift in Sources */,
 				36C0A8F02C65B45B0000B8BF /* Item.swift in Sources */,
+				36E0A9B32D0200010000A1B2 /* MenuBarController.swift in Sources */,
 				3668DB122C68886B00430975 /* AppDelegate.swift in Sources */,
 				36D0A9A12D0000010000A1B2 /* MenuBarView.swift in Sources */,
+				36E0A9B22D0200010000A1B2 /* HotKeyManager.swift in Sources */,
 				36C0A8EC2C65B45B0000B8BF /* ClipKeepApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +461,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_LSUIElement[sdk=macosx*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -471,10 +480,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 6;
 			};
 			name = Debug;
 		};
@@ -492,6 +501,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_LSUIElement[sdk=macosx*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -510,10 +520,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maverick.ClipKeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 6;
 			};
 			name = Release;
 		};

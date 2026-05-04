@@ -1,3 +1,4 @@
 echo "ClipKeepUITests" >> .gitignore
 echo "ClipKeepTests" >> .gitignore
 agents.md
+codebase.md

@@ -20,7 +20,7 @@ struct ContentView: View {
                             Button {
                                 selectedItem = item
                             } label: {
-                                ClipboardItemView(text: item.content)
+                                ClipboardItemView(text: item.content ?? "")
                             }
                             .buttonStyle(PlainButtonStyle())
                             .background(selectedItem?.persistentModelID == item.persistentModelID ? Color.gray.opacity(0.2) : Color.clear)
@@ -40,7 +40,7 @@ struct ContentView: View {
                             .padding([.top, .horizontal])
 
                         ScrollView {
-                            TextEditor(text: .constant(selectedItem.content))
+                            TextEditor(text: .constant(selectedItem.content ?? ""))
                                 .padding()
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .background(Color(platformBackgroundColor))
@@ -106,7 +106,7 @@ struct ContentView: View {
         if searchText.isEmpty {
             return items
         } else {
-            return items.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
+            return items.filter { ($0.content ?? "").localizedCaseInsensitiveContains(searchText) }
         }
     }
 

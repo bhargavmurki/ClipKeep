@@ -8,6 +8,7 @@ struct MenuBarView: View {
 
     @State private var searchText = ""
     @State private var hoverID: PersistentIdentifier?
+    @FocusState private var isSearchFocused: Bool
 
     private let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -17,49 +18,57 @@ struct MenuBarView: View {
     }()
 
     private var filteredItems: [Item] {
-        guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            return items
+        let terms = searchText
+            .split(whereSeparator: { $0.isWhitespace })
+            .map { $0.lowercased() }
+
+        guard !terms.isEmpty else { return items }
+
+        return items.filter { item in
+            guard item.kind == .text, let content = item.content?.lowercased() else { return false }
+            return terms.allSatisfy { content.contains($0) }
         }
-        return items.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
     }
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 14) {
             header
             searchBar
             content
             footer
         }
         .padding(20)
-        .frame(width: 360)
-        .frame(maxHeight: 1000, alignment: .top)
+        .frame(width: 380)
+        .frame(maxHeight: 900, alignment: .top)
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(.ultraThinMaterial)
-                .shadow(color: .black.opacity(0.15), radius: 18, x: 0, y: 12)
+                .shadow(color: Color.black.opacity(0.12), radius: 18, x: 0, y: 10)
         )
         .animation(.easeInOut(duration: 0.18), value: filteredItems.count)
     }
 
     private var header: some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 4) {
+        HStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text("ClipKeep")
                     .font(.system(.title3, design: .rounded, weight: .semibold))
-                Text("Fast, elegant clipboard access from the menu bar.")
+                Text("Menu bar clipboard. Cmd+Shift+V")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
             Spacer()
-            Circle()
-                .fill(LinearGradient(colors: [.teal, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-                .frame(width: 36, height: 36)
-                .overlay(
-                    Image(systemName: "sparkles")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(.white)
+            Label("New", systemImage: "bolt.fill")
+                .font(.caption.weight(.semibold))
+                .padding(.horizontal, 8)
+                .padding(.vertical, 6)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(Color.accentColor.opacity(0.12))
                 )
+                .foregroundStyle(Color.accentColor)
         }
+        .padding(.horizontal, 2)
     }
 
     private var searchBar: some View {
@@ -68,18 +77,24 @@ struct MenuBarView: View {
                 .foregroundStyle(.secondary)
             TextField("Search clips", text: $searchText)
                 .textFieldStyle(.plain)
+                .focused($isSearchFocused)
                 .onSubmit { searchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines) }
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
         .background(
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(.thinMaterial)
+                .fill(Color.primary.opacity(0.04))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .strokeBorder(Color.primary.opacity(0.06))
+                .strokeBorder(Color.primary.opacity(0.08))
         )
+        .onAppear {
+            DispatchQueue.main.async {
+                isSearchFocused = true
+            }
+        }
     }
 
     private var content: some View {
@@ -95,6 +110,7 @@ struct MenuBarView: View {
                                        subtitle: formatter.string(from: item.createdAt),
                                        source: item.source,
                                        copyCount: item.copyCount,
+                                       image: thumbnail(for: item),
                                        copyAction: { copy(item) })
                             .onHover { hovering in
                                 hoverID = hovering ? item.persistentModelID : nil
@@ -110,7 +126,7 @@ struct MenuBarView: View {
                 .scrollIndicators(.hidden)
             }
         }
-        .frame(maxHeight: 560)
+        .frame(maxHeight: 640)
     }
 
     private var footer: some View {
@@ -150,7 +166,11 @@ struct MenuBarView: View {
 
     private func copy(_ item: Item) {
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(item.content, forType: .string)
+        if item.kind == .image, let data = item.imageData {
+            NSPasteboard.general.setData(data, forType: .png)
+        } else if let content = item.content {
+            NSPasteboard.general.setString(content, forType: .string)
+        }
     }
 
     private func delete(_ item: Item) {
@@ -167,6 +187,11 @@ struct MenuBarView: View {
             try? modelContext.save()
         }
     }
+
+    private func thumbnail(for item: Item) -> NSImage? {
+        guard item.kind == .image, let data = item.imageData else { return nil }
+        return NSImage(data: data)
+    }
 }
 
 private struct MenuBarRow: View {
@@ -175,16 +200,36 @@ private struct MenuBarRow: View {
     let subtitle: String
     let source: String
     let copyCount: Int
+    let image: NSImage?
     let copyAction: () -> Void
 
     var body: some View {
         Button(action: copyAction) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.content.trimmingCharacters(in: .whitespacesAndNewlines))
-                    .font(.system(.body, design: .rounded))
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentTransition(.opacity)
+                if let image {
+                    HStack(spacing: 10) {
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 42, height: 32)
+                            .clipped()
+                            .cornerRadius(6)
+                        Text("Image")
+                            .font(.system(.body, design: .rounded))
+                            .lineLimit(1)
+                            .foregroundStyle(.primary)
+                        Spacer()
+                        Image(systemName: "photo.on.rectangle.angled")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } else {
+                    Text(item.content?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+                        .font(.system(.body, design: .rounded))
+                        .lineLimit(1)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentTransition(.opacity)
+                }
 
                 if isHovered {
                     HStack(spacing: 8) {
@@ -208,11 +253,15 @@ private struct MenuBarRow: View {
                 }
             }
             .padding(.horizontal, 10)
-            .padding(.vertical, 8)
+            .padding(.vertical, 9)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(isHovered ? Color.primary.opacity(0.08) : Color.primary.opacity(0.03))
+                    .fill(Color.primary.opacity(isHovered ? 0.09 : 0.04))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(Color.primary.opacity(isHovered ? 0.14 : 0.06), lineWidth: 0.8)
             )
         }
         .buttonStyle(.plain)

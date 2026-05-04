@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Carbon
 
 @main
 struct ClipKeepApp: App {
@@ -7,6 +8,7 @@ struct ClipKeepApp: App {
 
     let sharedModelContainer: ModelContainer
     let clipboardMonitor: ClipboardMonitor
+    private var menuController: MenuBarController?
 
     init() {
         let schema = Schema([
@@ -14,14 +16,19 @@ struct ClipKeepApp: App {
         ])
         self.sharedModelContainer = ClipKeepApp.makeModelContainer(schema: schema)
         self.clipboardMonitor = ClipboardMonitor(container: sharedModelContainer)
+        self.menuController = MenuBarController(container: sharedModelContainer)
+        HotKeyManager.shared.register(
+            keyCode: UInt32(kVK_ANSI_V),
+            modifiers: UInt32(cmdKey | shiftKey)
+        ) { [weak menuController] in
+            menuController?.togglePopover()
+        }
     }
 
     var body: some Scene {
-        MenuBarExtra("ClipKeep", systemImage: "doc.on.doc.fill") {
-            MenuBarView()
-                .modelContainer(sharedModelContainer)
+        Settings {
+            EmptyView()
         }
-        .menuBarExtraStyle(.window)
     }
 
     private static func makeModelContainer(schema: Schema) -> ModelContainer {

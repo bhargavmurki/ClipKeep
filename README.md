@@ -2,13 +2,14 @@
 
 _A fast, menu-bar–only clipboard manager for macOS with a sleek drop-down experience._
 
-## Features
+## Features (macOS only)
 
 - **Menu Bar–Only UI**: Click the doc icon in the menu bar to open the drop-down popover; no separate window.
-- **Instant History**: Captures clipboard changes automatically and keeps them deduplicated.
+- **Text + Image Clips**: Captures text or images instantly, deduplicates by content or image hash, and shows thumbnails for images.
 - **Search & Hover Details**: Filter quickly; hover any row to reveal source, timestamp, and copy count.
 - **Light/Dark Friendly**: SwiftUI styling with subtle hover/press feedback for a modern feel.
-- **One-Tap Actions**: Click to re-copy, clear all, or quit directly from the popover.
+- **One-Tap Actions**: Click to re-copy (text or image), clear all, or quit directly from the popover.
+- **Global Hotkey**: Press Cmd+Shift+V to open/close the popover and focus the search field.
 
 ## Installation
 
@@ -23,8 +24,9 @@ Build & run in Xcode (Cmd+R) targeting “My Mac”. The menu bar icon (`doc.on.
 
 ## Usage
 - Click the menu bar icon to open the popover; items are shown newest-first.
-- Hover a row to see source, date/time, and copy frequency; click to copy.
+- Hover a row to see source, date/time, and copy frequency; click to copy text or image back to the clipboard.
 - Use the search bar for quick filtering; “Clear All” wipes history; “Quit” exits the menu item.
+- Use Cmd+Shift+V to toggle the popover and jump straight into search.
 
 ## Build & Test (CLI)
 
