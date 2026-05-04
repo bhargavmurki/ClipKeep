@@ -21,21 +21,27 @@ class ClipboardMonitor {
         persist(entry: entry)
     }
 
-    private func readClipboardEntry(from pasteboard: NSPasteboard) -> (kind: ItemKind, content: String?, imageData: Data?, fingerprint: String)? {
+    private func readClipboardEntry(from pasteboard: NSPasteboard) -> (kind: ItemKind, content: String?, imageData: Data?, imagePasteboardType: NSPasteboard.PasteboardType?, fingerprint: String)? {
         if let content = pasteboard.string(forType: .string)?.trimmingCharacters(in: .whitespacesAndNewlines), !content.isEmpty {
-            return (.text, content, nil, content)
+            return (.text, content, nil, nil, content)
         }
 
-        if let data = pasteboard.data(forType: .png) ?? pasteboard.data(forType: .tiff) {
+        if let data = pasteboard.data(forType: .png) {
             let hash = SHA256.hash(data: data)
             let fingerprint = hash.map { String(format: "%02x", $0) }.joined()
-            return (.image, nil, data, fingerprint)
+            return (.image, nil, data, .png, fingerprint)
+        }
+
+        if let data = pasteboard.data(forType: .tiff) {
+            let hash = SHA256.hash(data: data)
+            let fingerprint = hash.map { String(format: "%02x", $0) }.joined()
+            return (.image, nil, data, .tiff, fingerprint)
         }
 
         return nil
     }
 
-    private func persist(entry: (kind: ItemKind, content: String?, imageData: Data?, fingerprint: String)) {
+    private func persist(entry: (kind: ItemKind, content: String?, imageData: Data?, imagePasteboardType: NSPasteboard.PasteboardType?, fingerprint: String)) {
         do {
             let fp = entry.fingerprint
             let descriptor = FetchDescriptor<Item>(
@@ -44,10 +50,12 @@ class ClipboardMonitor {
             if let existing = try modelContext.fetch(descriptor).first {
                 existing.copyCount += 1
                 existing.createdAt = Date()
+                existing.imagePasteboardType = entry.imagePasteboardType
             } else {
                 let item = Item(kind: entry.kind,
                                 content: entry.content,
                                 imageData: entry.imageData,
+                                imagePasteboardType: entry.imagePasteboardType,
                                 fingerprint: entry.fingerprint,
                                 createdAt: Date(),
                                 source: "Clipboard",

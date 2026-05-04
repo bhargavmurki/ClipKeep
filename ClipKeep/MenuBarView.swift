@@ -167,7 +167,8 @@ struct MenuBarView: View {
     private func copy(_ item: Item) {
         NSPasteboard.general.clearContents()
         if item.kind == .image, let data = item.imageData {
-            NSPasteboard.general.setData(data, forType: .png)
+            let pasteboardType = item.imagePasteboardType ?? .png
+            NSPasteboard.general.setData(data, forType: pasteboardType)
         } else if let content = item.content {
             NSPasteboard.general.setString(content, forType: .string)
         }

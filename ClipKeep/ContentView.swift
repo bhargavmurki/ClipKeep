@@ -1,6 +1,8 @@
 import SwiftUI
 import SwiftData
 
+// Legacy window-based UI retained temporarily for reference.
+// The active app flow is the menu-bar popover hosted by MenuBarController/MenuBarView.
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: [SortDescriptor(\Item.createdAt, order: .reverse)]) private var items: [Item]

@@ -41,13 +41,7 @@ struct ClipKeepApp: App {
         do {
             return try ModelContainer(for: schema, configurations: [configuration])
         } catch {
-            // If the schema changed (e.g., new fields), clear the old store and retry to prevent launch crashes.
-            try? FileManager.default.removeItem(at: storeURL)
-            do {
-                return try ModelContainer(for: schema, configurations: [configuration])
-            } catch {
-                fatalError("Could not create ModelContainer even after reset: \(error)")
-            }
+            fatalError("Could not create persistent ModelContainer at \(storeURL.path): \(error)")
         }
     }
 }
